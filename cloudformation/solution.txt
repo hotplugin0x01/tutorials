@@ -1,0 +1,12 @@
+- Create the stack using the following command. Use the challenge-lab.yml template:
+```
+aws cloudformation create-stack --stack-name lab-chall --template-body file://template.yml
+```
+- Check the status of the stack:
+```
+watch -n 5 -d \
+aws cloudformation describe-stack-resources \
+--stack-name lab-chall \
+--query 'StackResources[*].[ResourceType,ResourceStatus]' \
+--output table
+```
